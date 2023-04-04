@@ -1,0 +1,22 @@
+.login-container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #302F4D 0%, #DA4167 100%);
+  color: #F0EFF4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 80px;
+
+  .logo {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 10px;
+  }
+
+  .desc {
+    width: 800px;
+    text-align: end;
+  }
+}
