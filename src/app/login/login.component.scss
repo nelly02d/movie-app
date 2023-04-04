@@ -19,4 +19,39 @@
     width: 800px;
     text-align: end;
   }
+
+  .login-form {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px #F0EFF4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 30%;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      input {
+        margin-bottom: 10px;
+      }
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .error {
+        color: #F0EFF4;
+      }
+    }
+  }
+
+
 }

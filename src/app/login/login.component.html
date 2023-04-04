@@ -6,4 +6,20 @@
     necessitatibus iure voluptatibus
     maiores nisi cupiditate? Nostrum at eos eaque. Molestias fugit esse quibusdam sed a maiores eaque.
   </div>
+
+  <div class="login-form">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" [(ngModel)]="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" name="password" [(ngModel)]="password">
+    </div>
+    <div class="button-container">
+      <button class="btn btn-outline-light" (click)="login()">Login</button>
+      <div class="error">{{ errorMsg }}</div>
+    </div>
+  </div>
 </div>
+
