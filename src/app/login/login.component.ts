@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ export class LoginComponent {
   password = '';
   errorMsg = '';
 
-  constructor() {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     
@@ -23,6 +25,12 @@ export class LoginComponent {
       this.errorMsg = 'Password is required';
     } else {
       this.errorMsg = '';
+      let res = this.auth.login(this.username, this.password);
+      if(res === 200) {
+        this.router.navigate(['home'])
+      } else {
+        this.errorMsg = 'Invalid Credentials'
+      }
     }
   }
 }
