@@ -1,38 +1,60 @@
 <app-header></app-header>
 <div class="home-container d-flex justify-content-between min-vh-100 pt-5">
-  <div class="movies-container w-75 bg-info p-4">
-    <div class="all-movie   d-flex align-items-baseline justify-content-between pb-1">
-      <h4 class="title border-start border-4 border-dark ps-2">Trending Movies</h4>
-      <div class="view-all">View All</div>
+  <div class="movies-container text-light d-flex flex-column">
+    <div class="trending-movies pt-4 ps-3 pe-4 min-vh-100">
+      <div class="all-movie d-flex align-items-baseline justify-content-between pb-1">
+        <h4 class="title border-start border-4 border-dark ps-2">Trending Movies</h4>
+        <div class="view-all">View All</div>
+      </div>
+      <div class="movies-thumbnail d-flex flex-wrap justify-content-center">
+        <div class="movie col-sx col-sm col-md col-lg p-1 d-flex flex-column align-items-center" *ngFor="let movie of trendingMovies">
+          <div class="cover" (click)="goToMovie('trending', movie.id)">
+            <img [src]="movie.cover" alt="" class="rounded-2 shadow">
+          </div>
+          <div class="detail pb-2 pt-2 ps-3 pe-3 col-sx">
+            <div class="name fw-bold ">{{ movie.name }}</div>
+            <div class="rating">
+              <pre class="m-0">Rate: <b>{{movie.rating}}</b></pre>
+              <app-star-rating [rating]="movie.rating" [isReadOnly]="true"></app-star-rating>
+            </div>
+          </div>
+        </div> <!--movie-->
+      </div>
+    </div> <!--trending-movies-->
+    <div class="theatre-movies  bg-dark bg-gradient text-light pt-3 ps-3 pe-4"> <!--theatre-movies-->
+      <div class="all-movie d-flex align-items-baseline justify-content-between pb-1">
+        <h4 class="title border-start border-4 border-dark ps-2">Popular Movies in Theater</h4>
+        <div class="view-all">View All</div>
+      </div>
+      <div class="movies-thumbnail d-flex flex-wrap justify-content-center">
+        <div class="movie col-sx col-sm col-md col-lg p-1 d-flex flex-column align-items-center" *ngFor="let movie of theatreMovies">
+          <div class="cover" (click)="goToMovie('theatre', movie.id)">
+            <img [src]="movie.cover" alt="" class="rounded-2 shadow">
+          </div>
+          <div class="detail pb-2 pt-2 ps-3 pe-3 col-sx">
+            <div class="name fw-bold ">{{ movie.name }}</div>
+            <div class="rating">
+              <pre class="m-0">Rate: <b>{{movie.rating}}</b></pre>
+              <app-star-rating [rating]="movie.rating" [isReadOnly]="true"></app-star-rating>
+            </div>
+          </div>
+        </div> <!--movie-->
+      </div> 
+    </div> <!--theatre-movies-->
+  </div> <!--movies-container-->
+  <div class="papular-movies bg-warning w-25">
+    <div class="container-title p-4">
+      <h4 class="title border-start border-4 border-dark ps-2">Popular Movies</h4>
     </div>
-    <div class="movies-thumbnail d-flex flex-wrap justify-content-center">
-      <div class="movie col-sx col-sm col-md col-lg p-1 d-flex flex-column align-items-center" *ngFor="let movie of trendingMovies">
-        <div class="cover">
-          <img [src]="movie.cover" alt="" class="rounded-2 shadow">
-        </div>
-        <div class="detail pb-2 pt-2 ps-3 pe-3 col-sx">
-          <div class="name fw-bold ">{{ movie.name }}</div>
-          <div class="rating">
-            <ng-template #t let-fill="fill">
-              <i class="bi-heart-fill">
-                <i *ngIf="fill > 0" class="bi-heart-fill filled" [style.width.%]="fill"></i>
-              </i>
-            </ng-template>
-            
-            <ngb-rating
-              [(rate)]="movie.rating"
-              [starTemplate]="t"
-              [readonly]="true"
-              [max]="5"
-              [ariaValueText]="ariaValueText"
-            ></ngb-rating>
+    <div class="movies-thumbnail ">
+      <div class="movie " *ngFor="let movie of popularMovies">
+        <div class="detail pb-2 ps-3 pe-3 col-sx">
+          <div class="name fw-bold " (click)="goToMovie('popular', movie.id)">{{ movie.name }}</div>
+          <div class="rating d-flex align-items-center justify-content-between">
+            <app-star-rating [rating]="movie.rating" [isReadOnly]="true"></app-star-rating>
+            <pre class="m-0"><b>{{movie.rating}}</b></pre>
           </div>
         </div>
-      </div> <!--movie-->
-    </div>
-  </div>
-
-  <div class="papular-movies bg-warning w-25">
-    Hello
+      </div> <!--popular-movies-->
   </div>
 </div>

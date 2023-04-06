@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { MovieComponent } from './movie/movie.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FeatureModule } from './feature/feature.module';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule,
+    FeatureModule
   ],
   providers: [],
   bootstrap: [AppComponent]
