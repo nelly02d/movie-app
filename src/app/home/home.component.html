@@ -1,1 +1,38 @@
-<p>home works!</p>
+<app-header></app-header>
+<div class="home-container d-flex justify-content-between min-vh-100 pt-5">
+  <div class="movies-container w-75 bg-info p-4">
+    <div class="all-movie   d-flex align-items-baseline justify-content-between pb-1">
+      <h4 class="title border-start border-4 border-dark ps-2">Trending Movies</h4>
+      <div class="view-all">View All</div>
+    </div>
+    <div class="movies-thumbnail d-flex flex-wrap justify-content-center">
+      <div class="movie col-sx col-sm col-md col-lg p-1 d-flex flex-column align-items-center" *ngFor="let movie of trendingMovies">
+        <div class="cover">
+          <img [src]="movie.cover" alt="" class="rounded-2 shadow">
+        </div>
+        <div class="detail pb-2 pt-2 ps-3 pe-3 col-sx">
+          <div class="name fw-bold ">{{ movie.name }}</div>
+          <div class="rating">
+            <ng-template #t let-fill="fill">
+              <i class="bi-heart-fill">
+                <i *ngIf="fill > 0" class="bi-heart-fill filled" [style.width.%]="fill"></i>
+              </i>
+            </ng-template>
+            
+            <ngb-rating
+              [(rate)]="movie.rating"
+              [starTemplate]="t"
+              [readonly]="true"
+              [max]="5"
+              [ariaValueText]="ariaValueText"
+            ></ngb-rating>
+          </div>
+        </div>
+      </div> <!--movie-->
+    </div>
+  </div>
+
+  <div class="papular-movies bg-warning w-25">
+    Hello
+  </div>
+</div>
