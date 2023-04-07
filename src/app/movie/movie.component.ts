@@ -15,12 +15,11 @@ export class MovieComponent {
   movie: any
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
-
+   
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    
     this.type = this.route.snapshot.params['type'];
     this.id = this.route.snapshot.params['id'];
 
@@ -35,14 +34,14 @@ export class MovieComponent {
     if(this.type === 'popular') {
       this.url = 'http://localhost:4200/assets/data/popular-movies.json';
     }
-
     this.getMovie();
   }
 
   getMovie() {
     this.http.get(this.url).subscribe((movies) => {
       this.movies = movies //set
-      let index = this.movies.findIndex((movie: {id: string})  => movie.id == this.id);
+      
+      let index = this.movies.findIndex((movie: { id: string; }) => movie.id == this.id);
       if(index > -1) {
         this.movie = this.movies[index]
       }

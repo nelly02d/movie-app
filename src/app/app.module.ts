@@ -18,7 +18,7 @@ import { FeatureModule } from './feature/feature.module';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    MovieComponent
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
