@@ -25,7 +25,7 @@ import { FeatureModule } from './feature/feature.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FeatureModule
+    FeatureModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

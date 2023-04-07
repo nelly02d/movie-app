@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Router, RouterModule } from '@angular/router';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 
