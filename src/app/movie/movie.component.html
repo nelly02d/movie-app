@@ -1,16 +1,31 @@
 <app-header></app-header>
-<div class="movie-container pt-5">
-  <div class="movie-details" >
-    <h3 class="name pt-4">{{ movie.name }}</h3>
-    <!-- <div class="cover">
-      <img [src]="movie.cover" alt="" class="rounded-2 shadow">
+<ng-container *ngIf="movie">
+  <div class="movie-container pt-5 d-flex justify-content-between align-items-center min-vh-100">
+    <div class="movie-details w-50 d-flex flex-column align-items-center" >
+      <h3 class="name pt-4">{{ movie.name }}</h3>
+      <div class="cover">
+        <img [src]="movie.cover" alt="" class="rounded-2 shadow">
+      </div>
+      <div class="rating">
+        <pre class="m-0">Rate: <b>{{movie.rating}}</b></pre>
+        <app-star-rating 
+          [rating]="movie.rating" 
+          [isReadOnly]="true">
+        </app-star-rating>
+      </div>
+    </div> <!--movie-details-->
+    <div class="form-container w-50">
+      <div class="rating-container">
+        <label for="rating">Rating</label>
+        <app-star-rating [rating]="0" [isReadOnly]="false"></app-star-rating>
+      </div>
+      <div class="review-container">
+        <label for="review">Review</label>
+        <textarea name="review" id="review" rows="3"></textarea>
+      </div>
+      <button class="submit">Submit</button>
     </div>
-    <div class="rating">
-      <pre class="m-0">Rate: <b>{{movie.rating}}</b></pre>
-      <app-star-rating 
-        [rating]="movie.rating" 
-        [isReadOnly]="true">
-      </app-star-rating>
-    </div> -->
   </div>
-</div>
+</ng-container>
+
+
