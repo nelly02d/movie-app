@@ -1,7 +1,7 @@
 <app-header></app-header>
 <ng-container *ngIf="movie">
   <div class="movie-container pt-5 d-flex justify-content-between align-items-center min-vh-100">
-    <div class="movie-details w-50 d-flex flex-column align-items-center" >
+    <div class="movie-details w-50 d-flex flex-column align-items-end pe-4" >
       <h3 class="name pt-4">{{ movie.name }}</h3>
       <div class="cover">
         <img [src]="movie.cover" alt="" class="rounded-2 shadow">
@@ -15,15 +15,18 @@
       </div>
     </div> <!--movie-details-->
     <div class="form-container w-50">
-      <div class="rating-container">
+      <h5>Rate this movie</h5>
+      <label for="name" class="name pt-2 pb-3">Name</label>
+      <input type="text">
+      <div class="rating-container pb-3">
         <label for="rating">Rating</label>
-        <app-star-rating [rating]="0" [isReadOnly]="false"></app-star-rating>
+        <app-star-rating [rating]="0" [isReadOnly]="false" class="star"></app-star-rating>
       </div>
-      <div class="review-container">
+      <div class="review-container pb-3">
         <label for="review">Review</label>
         <textarea name="review" id="review" rows="3"></textarea>
       </div>
-      <button class="submit">Submit</button>
+      <button class="btn btn-dark">Submit</button>
     </div>
   </div>
 </ng-container>
